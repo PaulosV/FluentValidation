@@ -31,6 +31,9 @@ namespace FluentValidation.Validators {
 	public abstract class PropertyValidator : IPropertyValidator {
 		private readonly List<Func<object, object, object>> customFormatArgs = new List<Func<object, object, object>>();
 		private IStringSource errorSource;
+		private IStringSource originalErrorSource;
+		private IStringSource errorCodeSource;
+		private IStringSource originalErrorCodeSource;
 
 		public virtual bool IsAsync {
 			get { return false; }
@@ -43,15 +46,15 @@ namespace FluentValidation.Validators {
 		}
 
 		protected PropertyValidator(string errorMessageResourceName, Type errorMessageResourceType) {
-			errorSource = new LocalizedStringSource(errorMessageResourceType, errorMessageResourceName, new FallbackAwareResourceAccessorBuilder());
+			originalErrorSource = errorSource = new LocalizedStringSource(errorMessageResourceType, errorMessageResourceName, new FallbackAwareResourceAccessorBuilder());
 		}
 
 		protected PropertyValidator(string errorMessage) {
-			errorSource = new StaticStringSource(errorMessage);
+			originalErrorSource = errorSource = new StaticStringSource(errorMessage);
 		}
 
 		protected PropertyValidator(Expression<Func<string>> errorMessageResourceSelector) {
-			errorSource = LocalizedStringSource.CreateFromExpression(errorMessageResourceSelector, new FallbackAwareResourceAccessorBuilder());
+			originalErrorSource = errorSource = LocalizedStringSource.CreateFromExpression(errorMessageResourceSelector, new FallbackAwareResourceAccessorBuilder());
 		}
 
 		public IStringSource ErrorMessageSource {
@@ -60,7 +63,12 @@ namespace FluentValidation.Validators {
 				if (value == null) {
 					throw new ArgumentNullException("value");
 				}
+
 				errorSource = value;
+
+				if (value is LocalizedStringSource) {
+					originalErrorSource = value;
+				}
 			}
 		}
 
@@ -105,7 +113,9 @@ namespace FluentValidation.Validators {
 			var failure = new ValidationFailure(context.PropertyName, error, context.PropertyValue);
 			failure.FormattedMessageArguments = context.MessageFormatter.AdditionalArguments;
 			failure.FormattedMessagePlaceholderValues = context.MessageFormatter.PlaceholderValues;
-			failure.ErrorCode = errorSource.ResourceName;
+			failure.ResourceName = errorSource.ResourceName;
+			failure.ErrorCode = (errorCodeSource != null) ? errorCodeSource.GetString() : originalErrorSource.ResourceName;
+
 			if (CustomStateProvider != null) {
 				failure.CustomState = CustomStateProvider(context.Instance);
 			}
@@ -120,6 +130,19 @@ namespace FluentValidation.Validators {
 
 			string error = context.MessageFormatter.BuildMessage(errorSource.GetString());
 			return error;
+		}
+
+		public IStringSource ErrorCodeSource {
+			get { return errorCodeSource; }
+			set
+			{
+				if (value == null)
+				{
+					throw new ArgumentNullException("value");
+				}
+
+				errorCodeSource = value;
+			}
 		}
 	}
 }

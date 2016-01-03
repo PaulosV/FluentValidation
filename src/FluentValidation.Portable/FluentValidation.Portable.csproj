@@ -72,6 +72,9 @@
     <Compile Include="..\FluentValidation\Internal\RulesetValidatorSelector.cs">
       <Link>RulesetValidatorSelector.cs</Link>
     </Compile>
+    <Compile Include="..\FluentValidation\IParameterValidatorFactory.cs">
+      <Link>IParameterValidatorFactory.cs</Link>
+    </Compile>
     <Compile Include="..\FluentValidation\MemberAccessor.cs">
       <Link>MemberAccessor.cs</Link>
     </Compile>
@@ -102,11 +105,23 @@
     <Compile Include="..\FluentValidation\TaskHelpers\TaskHelpersExtensions.cs">
       <Link>TaskHelpersExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\FluentValidation\TestHelper\ITestPropertyChain.cs">
+      <Link>ITestPropertyChain.cs</Link>
+    </Compile>
+    <Compile Include="..\FluentValidation\TestHelper\IValidationResultTester.cs">
+      <Link>IValidationResultTester.cs</Link>
+    </Compile>
+    <Compile Include="..\FluentValidation\TestHelper\TestPropertyChain.cs">
+      <Link>TestPropertyChain.cs</Link>
+    </Compile>
+    <Compile Include="..\FluentValidation\TestHelper\TestValidationResult.cs">
+      <Link>TestValidationResult.cs</Link>
+    </Compile>
+    <Compile Include="..\FluentValidation\TestHelper\ValidationResultTester.cs">
+      <Link>ValidationResultTester.cs</Link>
+    </Compile>
     <Compile Include="..\FluentValidation\TestHelper\ValidationTestException.cs">
       <Link>ValidationTestException.cs</Link>
-    </Compile>
-    <Compile Include="..\FluentValidation\TestHelper\ValidatorTester.cs">
-      <Link>ValidatorTester.cs</Link>
     </Compile>
     <Compile Include="..\FluentValidation\TestHelper\ValidatorTestExtensions.cs">
       <Link>ValidatorTestExtensions.cs</Link>
@@ -281,7 +296,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.cz.resx">
+    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.cs.resx">
       <Link>Resources\Messages.cz.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\FluentValidation\Resources\Messages.da.resx">
@@ -319,6 +334,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="..\FluentValidation\Resources\Messages.sv.resx">
       <Link>Resources\Messages.sv.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.zh-CN.resx">
+      <Link>Resources\Messages.zh-CN.resx</Link>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
