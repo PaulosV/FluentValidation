@@ -296,49 +296,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.cs.resx">
-      <Link>Resources\Messages.cz.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.da.resx">
-      <Link>Resources\Messages.da.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.de.resx">
-      <Link>Resources\Messages.de.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.es.resx">
-      <Link>Resources\Messages.es.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.fi.resx">
-      <Link>Resources\Messages.fi.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.fr.resx">
-      <Link>Resources\Messages.fr.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.it.resx">
-      <Link>Resources\Messages.it.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.nl.resx">
-      <Link>Resources\Messages.nl.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.pl.resx">
-      <Link>Resources\Messages.pl.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.pt.resx">
-      <Link>Resources\Messages.pt.resx</Link>
-    </EmbeddedResource>
     <EmbeddedResource Include="..\FluentValidation\Resources\Messages.resx">
       <Link>Resources\Messages.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.ru.resx">
-      <Link>Resources\Messages.ru.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.sv.resx">
-      <Link>Resources\Messages.sv.resx</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\FluentValidation\Resources\Messages.zh-CN.resx">
-      <Link>Resources\Messages.zh-CN.resx</Link>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Messages.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
